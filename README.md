@@ -7,7 +7,7 @@
 
 ## DBMS
 We created our data mart using PostgreSQL DBMS and used pgAdmin4 as our development platform. Please ensure you have these installed. 
-# Steps for creating the dimensions
+### Steps for creating the dimensions
 This database is currently not hosted. You will need to create your own instances by running the populate SQLs.
 1. Create tables for the network capture CSVs
 2. Import the CSV data into its associated table (See step below)
