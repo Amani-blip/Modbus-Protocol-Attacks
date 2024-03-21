@@ -190,3 +190,10 @@ CREATE TABLE IF NOT EXISTS public."TcpSYNFlood"
     "AttackName" character varying,
     date_time time with time zone
 );
+
+ALTER TABLE public."Benign" DROP COLUMN "DstMACResolved.1";
+ALTER TABLE public."Mitm" DROP COLUMN "DstMACResolved.1";
+ALTER TABLE public."ModbusQuery2Flooding" DROP COLUMN "DstMACResolved.1";
+ALTER TABLE public."ModbusQueryFlooding" DROP COLUMN "DstMACResolved.1";
+ALTER TABLE public."PingFloodDDos" DROP COLUMN "DstMACResolved.1";
+ALTER TABLE public."TcpSYNFlood" DROP COLUMN "DstMACResolved.1";
