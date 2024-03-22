@@ -9,8 +9,7 @@ CREATE TABLE IF NOT EXISTS public."DestinationDimension"
     "DstPort" bigint
 );
 
-INSERT INTO public."DestinationDimension"("DstIP","DstMAC", "DstMACResolved", "DstOUI",
-										  "DstOUIResolved", "DstPort")
+INSERT INTO public."DestinationDimension"("DstIP","DstMAC", "DstMACResolved", "DstOUI", "DstOUIResolved", "DstPort")
 SELECT DISTINCT
     "DstIP" as "DstIP",
     "DstMAC" as "DstMAC",
