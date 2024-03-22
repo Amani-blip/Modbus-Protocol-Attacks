@@ -2,7 +2,7 @@ CREATE TABLE IF NOT EXISTS public."AttackTypeDimension" (
     "AttackTypeKey" SERIAL PRIMARY KEY,
     "AttackName" character varying,
     "AttackSubType" character varying,
-    "Info" text,
+    "Info" text
 );
 
 INSERT INTO public."AttackTypeDimension" ("AttackName", "AttackSubType", "Info")
