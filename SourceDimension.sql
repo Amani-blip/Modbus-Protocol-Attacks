@@ -14,8 +14,7 @@ INSERT INTO public."SourceDimension"(
     "SrcMACResolved", 
     "SrcOUI", 
     "SrcOUIResolved", 
-    "SrcPort", 
-    "HardwareSrcAddr"
+    "SrcPort"
 )
 SELECT DISTINCT
     "SrcIP", 
