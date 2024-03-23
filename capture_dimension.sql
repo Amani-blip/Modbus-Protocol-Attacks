@@ -4,7 +4,7 @@ CREATE TABLE IF NOT EXISTS public."CaptureDimension"(
 	"EndTime" timestamp, 
 	"Duration" double precision, 
 	"NumHalfOpenConnections" bigint,
-	"SYNCount" bigint 
+	"SYNCount" bigint,
 	"NumARPRequestsSent" bigint
 );
 

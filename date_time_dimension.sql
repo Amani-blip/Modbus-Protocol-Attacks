@@ -7,7 +7,7 @@ CREATE TABLE IF NOT EXISTS public."DateTimeDimension" (
 
 INSERT INTO public."DateTimeDimension" ("Timestamp", "EpochTime", "TimeDelta", "RelativeTime")
 SELECT
-    "date_time",
+    "DateTime",
     "EpochTime",
     "TimeDelta",
     "RelativeTime"

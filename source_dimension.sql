@@ -22,6 +22,6 @@ SELECT DISTINCT
     "SrcMACResolved", 
     "SrcOUI", 
     "SrcOUIResolved", 
-    "SrcPort", 
+    "SrcPort"
 FROM
     public."PacketOutput";

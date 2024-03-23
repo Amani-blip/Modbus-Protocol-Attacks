@@ -6,7 +6,7 @@ CREATE TABLE IF NOT EXISTS public."DestinationDimension"
     "DstMACResolved" character varying,
     "DstOUI" character varying,
     "DstOUIResolved" character varying,
-    "DstPort" bigint
+    "DstPort" double precision
 );
 
 INSERT INTO public."DestinationDimension"("DstIP","DstMAC", "DstMACResolved", "DstOUI", "DstOUIResolved", "DstPort")
