@@ -1,6 +1,5 @@
 CREATE TABLE IF NOT EXISTS public."Benign"
 (
-    "No." bigint,
     "Time" double precision,
     "SrcIP" character varying,
     "DstIP" character varying,
@@ -27,12 +26,11 @@ CREATE TABLE IF NOT EXISTS public."Benign"
     "TimeDelta" double precision,
     "CaptureName" character varying,
     "AttackName" character varying,
-    "date_time" timestamp
+    "DateTime" timestamp with time zone
 );
 
 CREATE TABLE IF NOT EXISTS public."Mitm"
-(
-    "No." bigint,
+( 
     "Time" double precision,
     "SrcIP" character varying,
     "DstIP" character varying,
@@ -59,12 +57,11 @@ CREATE TABLE IF NOT EXISTS public."Mitm"
     "TimeDelta" double precision,
     "CaptureName" character varying,
     "AttackName" character varying,
-    "date_time" timestamp
+	"DateTime" timestamp with time zone
 );
 
 CREATE TABLE IF NOT EXISTS public."ModbusQuery2Flooding"
 (
-    "No." bigint,
     "Time" double precision,
     "SrcIP" character varying,
     "DstIP" character varying,
@@ -91,12 +88,11 @@ CREATE TABLE IF NOT EXISTS public."ModbusQuery2Flooding"
     "TimeDelta" double precision,
     "CaptureName" character varying,
     "AttackName" character varying,
-    "date_time" timestamp
+    "DateTime" timestamp with time zone
 );
 
 CREATE TABLE IF NOT EXISTS public."ModbusQueryFlooding"
 (
-    "No." bigint,
     "Time" double precision,
     "SrcIP" character varying,
     "DstIP" character varying,
@@ -123,13 +119,12 @@ CREATE TABLE IF NOT EXISTS public."ModbusQueryFlooding"
     "TimeDelta" double precision,
     "CaptureName" character varying,
     "AttackName" character varying,
-    "date_time" timestamp
+    "DateTime" timestamp with time zone
 );
 
 
 CREATE TABLE IF NOT EXISTS public."PingFloodDDos"
 (
-    "No." bigint,
     "Time" double precision,
     "SrcIP" character varying,
     "DstIP" character varying,
@@ -156,12 +151,11 @@ CREATE TABLE IF NOT EXISTS public."PingFloodDDos"
     "TimeDelta" double precision,
     "CaptureName" character varying,
     "AttackName" character varying,
-    "date_time" timestamp
+    "DateTime" timestamp with time zone
 );
 
 CREATE TABLE IF NOT EXISTS public."TcpSYNFlood"
 (
-    "No." bigint,
     "Time" double precision,
     "SrcIP" character varying,
     "DstIP" character varying,
@@ -188,42 +182,39 @@ CREATE TABLE IF NOT EXISTS public."TcpSYNFlood"
     "TimeDelta" double precision,
     "CaptureName" character varying,
     "AttackName" character varying,
-    "date_time" timestamp
+    "DateTime" timestamp with time zone
 );
 
 
 
 -- Uncomment below once data is imported 
+
 -- ALTER TABLE public."Benign" DROP COLUMN IF EXISTS "DstMACResolved.1";
 -- ALTER TABLE public."Mitm" DROP COLUMN IF EXISTS "DstMACResolved.1";
 -- ALTER TABLE public."ModbusQuery2Flooding" DROP COLUMN IF EXISTS "DstMACResolved.1";
 -- ALTER TABLE public."ModbusQueryFlooding" DROP COLUMN IF EXISTS "DstMACResolved.1";
 -- ALTER TABLE public."PingFloodDDos" DROP COLUMN IF EXISTS "DstMACResolved.1";
 -- ALTER TABLE public."TcpSYNFlood" DROP COLUMN IF EXISTS "DstMACResolved.1";
--- /*
--- 'No.', 'Time', 'SrcIP', 'DstIP', 'Protocol', 'Length', 'Info', 'SrcMAC', 'SrcMACResolved', 'SrcOUIResolved', 'SrcPort', 'SequenceNumber', 'SrcOUI', 'DstMAC', 'DstMACResolved', 'DstOUI', 'DstOUResolved', 'DstPort', 'DstMACResolved.1', 'SYNFlag', 'ACKFlag', 'ProtocolType', 'EpochTime', 'RelativeTime', 'TimeDelta', 'CaptureName', 'AttackName', 'date_time'
--- */
 
-CREATE TABLE IF NOT EXISTS public."PacketOutput" AS
-SELECT "No.", "Time", "SrcIP", "DstIP", "Protocol", "Length", "Info", "SrcMAC", "SrcMACResolved", "SrcOUIResolved", "SrcPort", "SequenceNumber", "SrcOUI", "DstMAC", "DstMACResolved", "DstOUI", "DstOUResolved", "DstPort", "SYNFlag", "ACKFlag", "ProtocolType", "EpochTime", "RelativeTime", "TimeDelta", "CaptureName", "AttackName", "date_time"
-FROM public."Benign"
-UNION
-SELECT "No.", "Time", "SrcIP", "DstIP", "Protocol", "Length", "Info", "SrcMAC", "SrcMACResolved", "SrcOUIResolved", "SrcPort", "SequenceNumber", "SrcOUI", "DstMAC", "DstMACResolved", "DstOUI", "DstOUResolved", "DstPort", "SYNFlag", "ACKFlag", "ProtocolType", "EpochTime", "RelativeTime", "TimeDelta", "CaptureName", "AttackName", "date_time"
-FROM public."Mitm"
-UNION
-SELECT "No.", "Time", "SrcIP", "DstIP", "Protocol", "Length", "Info", "SrcMAC", "SrcMACResolved", "SrcOUIResolved", "SrcPort", "SequenceNumber", "SrcOUI", "DstMAC", "DstMACResolved", "DstOUI", "DstOUResolved", "DstPort", "SYNFlag", "ACKFlag", "ProtocolType", "EpochTime", "RelativeTime", "TimeDelta", "CaptureName", "AttackName", "date_time"
-FROM public."ModbusQuery2Flooding"
-UNION
-SELECT "No.", "Time", "SrcIP", "DstIP", "Protocol", "Length", "Info", "SrcMAC", "SrcMACResolved", "SrcOUIResolved", "SrcPort", "SequenceNumber", "SrcOUI", "DstMAC", "DstMACResolved", "DstOUI", "DstOUResolved", "DstPort", "SYNFlag", "ACKFlag", "ProtocolType", "EpochTime", "RelativeTime", "TimeDelta", "CaptureName", "AttackName", "date_time"
-FROM public."ModbusQueryFlooding"
-UNION
-SELECT "No.", "Time", "SrcIP", "DstIP", "Protocol", "Length", "Info", "SrcMAC", "SrcMACResolved", "SrcOUIResolved", "SrcPort", "SequenceNumber", "SrcOUI", "DstMAC", "DstMACResolved", "DstOUI", "DstOUResolved", "DstPort", "SYNFlag", "ACKFlag", "ProtocolType", "EpochTime", "RelativeTime", "TimeDelta", "CaptureName", "AttackName", "date_time"
-FROM public."PingFloodDDos"
-UNION
-SELECT "No.", "Time", "SrcIP", "DstIP", "Protocol", "Length", "Info", "SrcMAC", "SrcMACResolved", "SrcOUIResolved", "SrcPort", "SequenceNumber", "SrcOUI", "DstMAC", "DstMACResolved", "DstOUI", "DstOUResolved", "DstPort", "SYNFlag", "ACKFlag", "ProtocolType", "EpochTime", "RelativeTime", "TimeDelta", "CaptureName", "AttackName", "date_time"
-FROM public."TcpSYNFlood"
-;
 
-ALTER TABLE public."PacketOutput" DROP COLUMN IF EXISTS "No.";
+-- CREATE TABLE IF NOT EXISTS public."PacketOutput" AS
+-- SELECT "Time", "SrcIP", "DstIP", "Protocol", "Length", "Info", "SrcMAC", "SrcMACResolved", "SrcOUIResolved", "SrcPort", "SequenceNumber", "SrcOUI", "DstMAC", "DstMACResolved", "DstOUI", "DstOUResolved", "DstPort", "SYNFlag", "ACKFlag", "ProtocolType", "EpochTime", "RelativeTime", "TimeDelta", "CaptureName", "AttackName", "DateTime"
+-- FROM public."Benign"
+-- UNION
+-- SELECT "Time", "SrcIP", "DstIP", "Protocol", "Length", "Info", "SrcMAC", "SrcMACResolved", "SrcOUIResolved", "SrcPort", "SequenceNumber", "SrcOUI", "DstMAC", "DstMACResolved", "DstOUI", "DstOUResolved", "DstPort", "SYNFlag", "ACKFlag", "ProtocolType", "EpochTime", "RelativeTime", "TimeDelta", "CaptureName", "AttackName", "DateTime"
+-- FROM public."Mitm"
+-- UNION
+-- SELECT "Time", "SrcIP", "DstIP", "Protocol", "Length", "Info", "SrcMAC", "SrcMACResolved", "SrcOUIResolved", "SrcPort", "SequenceNumber", "SrcOUI", "DstMAC", "DstMACResolved", "DstOUI", "DstOUResolved", "DstPort", "SYNFlag", "ACKFlag", "ProtocolType", "EpochTime", "RelativeTime", "TimeDelta", "CaptureName", "AttackName", "DateTime"
+-- FROM public."ModbusQuery2Flooding"
+-- UNION
+-- SELECT "Time", "SrcIP", "DstIP", "Protocol", "Length", "Info", "SrcMAC", "SrcMACResolved", "SrcOUIResolved", "SrcPort", "SequenceNumber", "SrcOUI", "DstMAC", "DstMACResolved", "DstOUI", "DstOUResolved", "DstPort", "SYNFlag", "ACKFlag", "ProtocolType", "EpochTime", "RelativeTime", "TimeDelta", "CaptureName", "AttackName", "DateTime"
+-- FROM public."ModbusQueryFlooding"
+-- UNION
+-- SELECT "Time", "SrcIP", "DstIP", "Protocol", "Length", "Info", "SrcMAC", "SrcMACResolved", "SrcOUIResolved", "SrcPort", "SequenceNumber", "SrcOUI", "DstMAC", "DstMACResolved", "DstOUI", "DstOUResolved", "DstPort", "SYNFlag", "ACKFlag", "ProtocolType", "EpochTime", "RelativeTime", "TimeDelta", "CaptureName", "AttackName", "DateTime"
+-- FROM public."PingFloodDDos"
+-- UNION
+-- SELECT "Time", "SrcIP", "DstIP", "Protocol", "Length", "Info", "SrcMAC", "SrcMACResolved", "SrcOUIResolved", "SrcPort", "SequenceNumber", "SrcOUI", "DstMAC", "DstMACResolved", "DstOUI", "DstOUResolved", "DstPort", "SYNFlag", "ACKFlag", "ProtocolType", "EpochTime", "RelativeTime", "TimeDelta", "CaptureName", "AttackName", "DateTime"
+-- FROM public."TcpSYNFlood"
+-- ;
 
 
