@@ -78,8 +78,8 @@ UPDATE public."PacketOutput"
 SET "ProtocolKey" = pd."ProtocolKey"
 FROM public."ProtocolDimension" pd
 WHERE public."PacketOutput"."Protocol" = pd."ProtocolType"
-AND CAST(public."PacketOutput"."SrcPort" AS BIGINT) = pd."SrcPort"
-AND CAST(public."PacketOutput"."DstPort" AS BIGINT) = pd."DstPort";  
+AND public."PacketOutput"."SrcPort" = pd."SrcPort"
+AND public."PacketOutput"."DstPort" = pd."DstPort";  
 
 
 ALTER TABLE public."PacketOutput"
@@ -102,5 +102,14 @@ REFERENCES public."AttackTypeDimension"("AttackTypeKey");
 
 
 
+UPDATE public."PacketOutput"
+SET "AttackTypeKey" = CASE
+    WHEN "AttackName" = 'Benign' THEN 1
+    WHEN "AttackName" = 'Mitm' THEN 2
+    WHEN "AttackName" = 'ModbusQuery2Flooding' THEN 3
+    WHEN "AttackName" = 'ModbusQueryFlooding' THEN 4
+    WHEN "AttackName" = 'PingFloodDDos' THEN 5
+    WHEN "AttackName" = 'TCPSynFlood' THEN 6
+END;
 
 
