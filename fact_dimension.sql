@@ -22,6 +22,7 @@ ADD IF NOT EXISTS "AttackTypeKey" integer;
 -- Number of rows in PacketOutput is 6889976
 
 -- UNCOMMENT AND COMMENT EACH ONE ACCORDINGLY ONE AT A TIME
+
 UPDATE public."PacketOutput"
 SET "CaptureKey" = "CaptureDimension"."CaptureKey"
 FROM public."CaptureDimension"
@@ -99,9 +100,6 @@ ADD CONSTRAINT fk_packetoutput_attacktype
 FOREIGN KEY ("AttackTypeKey")
 REFERENCES public."AttackTypeDimension"("AttackTypeKey");
 
-
-
-
 UPDATE public."PacketOutput"
 SET "AttackTypeKey" = CASE
     WHEN "AttackName" = 'Benign' THEN 1
@@ -111,5 +109,3 @@ SET "AttackTypeKey" = CASE
     WHEN "AttackName" = 'PingFloodDDos' THEN 5
     WHEN "AttackName" = 'TCPSynFlood' THEN 6
 END;
-
-

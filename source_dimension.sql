@@ -14,8 +14,7 @@ INSERT INTO public."SourceDimension"(
     "SrcMACResolved", 
     "SrcOUI", 
     "SrcOUIResolved", 
-    "SrcPort", 
-    "HardwareSrcAddr"
+    "SrcPort"
 )
 SELECT DISTINCT
     "SrcIP", 
@@ -23,6 +22,6 @@ SELECT DISTINCT
     "SrcMACResolved", 
     "SrcOUI", 
     "SrcOUIResolved", 
-    "SrcPort", 
+    "SrcPort"
 FROM
     public."PacketOutput";
